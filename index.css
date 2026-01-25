@@ -957,13 +957,6 @@ html {
 
 
 
-/* ============================
-   Cool theme overrides (visual polish)
-   - Stronger glassmorphism
-   - Improved depth (shadows + hover)
-   - Cleaner typography rhythm
-   - Subtle neon accents (teal + violet)
-============================ */
 
 :root{
   --bg: #0b0d12;
@@ -974,10 +967,10 @@ html {
   --muted: rgba(255, 255, 255, 0.74);
   --muted2: rgba(255, 255, 255, 0.60);
 
-  /* main accent used throughout existing CSS */
+  
   --accent: rgba(122, 231, 255, 0.32);
 
-  /* extra accents for new effects */
+  
   --accent2: rgba(162, 108, 255, 0.26);
   --glow: rgba(122, 231, 255, 0.22);
   --glow2: rgba(162, 108, 255, 0.18);
@@ -985,7 +978,7 @@ html {
   --radius: 18px;
 }
 
-/* Background becomes richer without changing layout */
+
 body{
   background:
     radial-gradient(1000px 600px at 14% 10%, rgba(122,231,255,0.10), transparent 55%),
@@ -994,7 +987,7 @@ body{
     var(--bg);
 }
 
-/* Stronger blur panels */
+
 .section-card,
 .hero-card{
   background: linear-gradient(135deg, rgba(18,20,28,0.72), rgba(18,20,28,0.45));
@@ -1004,7 +997,7 @@ body{
   -webkit-backdrop-filter: blur(14px);
 }
 
-/* Header: more "premium" glass */
+
 .header{
   background: rgba(12,14,20,0.55);
   border-bottom: 1px solid rgba(255,255,255,0.10);
@@ -1060,7 +1053,7 @@ body{
   text-shadow: 0 0 18px rgba(122,231,255,0.22);
 }
 
-/* Project cards: stronger depth + hover lift */
+
 .project-card{
   background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(0,0,0,0.14));
   border: 1px solid rgba(255,255,255,0.12);
@@ -1073,7 +1066,7 @@ body{
   box-shadow: 0 26px 70px rgba(0,0,0,0.40), 0 0 0 1px rgba(122,231,255,0.16) inset;
 }
 
-/* Tags / pills look more "designed" */
+
 .pill{
   border: 1px solid rgba(255,255,255,0.14);
   background: linear-gradient(135deg, rgba(122,231,255,0.14), rgba(162,108,255,0.10));
@@ -1094,14 +1087,14 @@ body{
   box-shadow: 0 20px 48px rgba(0,0,0,0.40), 0 0 0 1px rgba(162,108,255,0.14) inset;
 }
 
-/* Modal: cleaner */
+
 .modal-content{
   background: linear-gradient(135deg, rgba(18,20,28,0.92), rgba(18,20,28,0.70));
   border: 1px solid rgba(255,255,255,0.14);
   box-shadow: 0 30px 90px rgba(0,0,0,0.55);
 }
 
-/* Blob glow emphasis (keeps your existing movement/structure) */
+
 #blob, #blob2, #blob3{
   filter: blur(90px);
   opacity: 0.9;
@@ -1111,7 +1104,7 @@ body{
   -webkit-backdrop-filter: blur(120px);
 }
 
-/* Respect reduced motion */
+
 @media (prefers-reduced-motion: reduce){
   .btn:hover, .project-card:hover, .thumb:hover{ transform: none; }
 }
