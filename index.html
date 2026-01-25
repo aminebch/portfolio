@@ -1,404 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mohammed Amine Bouchakour | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="index.css" />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <title>Mohammed Amine Bouchakour | AI Engineer & Data Scientist</title>
+  <meta name="description"
+    content="Amine Bouchakour — AI Engineer & Data Scientist. Projects in federated intrusion prediction, multimodal deepfake detection, healthcare decision support, and computer vision." />
+
+  
+  <meta property="og:title" content="Mohammed Amine Bouchakour | AI Engineer & Data Scientist" />
+  <meta property="og:description"
+    content="AI Engineer & Data Scientist. Projects in federated learning, multimodal deepfake detection, healthcare decision support, and computer vision." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+
+  <meta name="theme-color" content="#0f1115" />
+
+  <link rel="stylesheet" href="index.cool.css" />
+
+  <!-- Icons (Boxicons) -->
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+  <script src="index.js" defer></script>
 </head>
 
 <body id="home">
-    <!-- Background effects -->
-    <div id="blob"></div>
-    <div id="blob2"></div>
-    <div id="blob3"></div>
-    <div id="blur"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Hero scramble text (click or hover) -->
-    <h2 id="heroText" data-value="I'M AMINE">HELLO MATE</h2>
+  <!-- Background effects -->
+  <div id="blob" aria-hidden="true"></div>
+  <div id="blob2" aria-hidden="true"></div>
+  <div id="blob3" aria-hidden="true"></div>
+  <div id="blur" aria-hidden="true"></div>
 
-    <!-- Header -->
-    <header class="header">
-        <a href="#home" class="logo">Amine</a>
+  <!-- Header -->
+  <header class="header" role="banner">
+    <a href="#home" class="logo" aria-label="Go to top">Amine</a>
 
-        <input type="checkbox" id="check" />
-        <label for="check" class="icons" aria-label="Toggle navigation">
-            <i class="bx bx-menu" id="menu-icon"></i>
-            <i class="bx bx-x" id="close-icon"></i>
-        </label>
+    
+    <input type="checkbox" id="check" aria-label="Open navigation menu" />
+    <label for="check" class="icons" aria-label="Toggle navigation">
+      <i class="bx bx-menu" id="menu-icon" aria-hidden="true"></i>
+      <i class="bx bx-x" id="close-icon" aria-hidden="true"></i>
+    </label>
 
-        <nav class="navbar" aria-label="Primary navigation">
-            <a href="#about" style="--i:0;">Profile</a>
-            <a href="#projects" style="--i:1;">Projects</a>
-            <a href="#skills" style="--i:2;">Skills</a>
-            <a href="#experience" style="--i:3;">Experience</a>
-            <a href="#education" style="--i:4;">Education</a>
-            <button type="button" class="nav-cta" data-scroll="#contact">Contact me</button>
-        </nav>
-    </header>
+    <nav class="navbar" aria-label="Primary navigation">
+      <a href="#about" data-nav="about" style="--i:0;">Profile</a>
+      <a href="#projects" data-nav="projects" style="--i:1;">Projects</a>
+      <a href="#skills" data-nav="skills" style="--i:2;">Skills</a>
+      <a href="#experience" data-nav="experience" style="--i:3;">Experience</a>
+      <a href="#education" data-nav="education" style="--i:4;">Education</a>
+      <button type="button" class="nav-cta" data-scroll="#contact">Contact</button>
+    </nav>
+  </header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-left">
-            <div class="hero-card">
-                <h1>Mohammed Amine Bouchakour</h1>
-                <h3>Artificial Intelligence Engineer • Data Scientist</h3>
-                <p>
-                    Master’s degree (Bournemouth University). I build reliable ML systems from data to deployment,
-                    with experience in Healthcare AI, Computer Vision, Federated Learning, and Security-oriented
-                    analytics.
-                </p>
+  <!-- Scramble badge (click/hover) -->
+  <div class="scramble-wrap" aria-hidden="false">
+    <h2 id="heroText" data-value="AI • ML • Computer Vision">AI • ML • Computer Vision</h2>
+    <p class="scramble-hint">Click or hover</p>
+  </div>
 
-                <div class="hero-actions">
-                    <a class="btn" href="#projects">View Projects</a>
-                    <a class="btn btn-ghost" href="#contact">Contact</a>
-                </div>
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-left">
+      <div class="hero-card">
+        <h1>Mohammed Amine Bouchakour</h1>
+        <h3>AI Engineer • Data Scientist</h3>
 
-                <div class="hero-badges">
-                    <span class="badge">Trilingual: English • Arabic • French</span>
-                    <span class="badge">Python • SQL • C/C++</span>
-                    <span class="badge">PyTorch • scikit-learn • OpenCV • Git</span>
-                </div>
-            </div>
+        <p>
+          MSc in Data Science & Artificial Intelligence (Bournemouth University). I build end-to-end machine learning
+          systems with a focus on <strong>reliability, evaluation, and real-world deployment constraints</strong>.
+          Experience across computer vision, time-series modelling, and decision-support applications.
+        </p>
+
+        <div class="hero-actions" role="group" aria-label="Primary actions">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn btn-ghost" href="#contact">Contact</a>
         </div>
 
-        <div class="hero-right">
-            <div class="img2">
-                <img src="assets/12345.png" alt="Portrait background visual" />
-            </div>
-
-            <div class="img1">
-                <img src="assets/logaro2.png" alt="Logo / main visual" />
-            </div>
+        <div class="hero-links" aria-label="External links">
+          <a class="icon-link" href="https://www.linkedin.com/in/aminebouchakour" target="_blank"
+            rel="noopener noreferrer">
+            <i class="bx bxl-linkedin-square" aria-hidden="true"></i><span>LinkedIn</span>
+          </a>
+          <a class="icon-link" href="https://github.com/aminebch" target="_blank" rel="noopener noreferrer">
+            <i class="bx bxl-github" aria-hidden="true"></i><span>GitHub</span>
+          </a>
+          
         </div>
+
+        <div class="hero-badges" aria-label="Highlights">
+          <span class="badge">Trilingual: English • Arabic • French</span>
+          <span class="badge">Python • SQL • JavaScript • R</span>
+          <span class="badge">PyTorch • scikit-learn • OpenCV • Git • Linux</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right" aria-hidden="true">
+      <div class="img2">
+        <img src="assets/12345.png" alt="" loading="lazy" decoding="async" />
+      </div>
+
+      <div class="img1">
+        <img src="assets/logaro2.png" alt="" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <main id="main" class="content">
+    <!-- ABOUT -->
+    <section id="about" class="section" aria-label="Profile">
+      <h5>Profile</h5>
+      <div class="section-card">
+        <p>
+          I’m Amine—an AI Engineer and Data Scientist with demonstrated experience translating research ideas into
+          practical systems. I value clear evaluation, robustness, and realistic assumptions (calibration, high-recall
+          operation, and degraded inputs), especially in domains where reliability matters.
+        </p>
+
+        <p>
+          I’ve delivered projects in federated learning for privacy-preserving prediction, multimodal deepfake detection,
+          healthcare decision support, and computer vision classification pipelines. I also contributed as a co-inventor
+          to a filed patent for an inventory/security automation system.
+        </p>
+
+        <div class="about-media">
+          <video autoplay loop muted playsinline preload="none" src="assets/vid.mp4" aria-label="Project demo video">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
     </section>
 
-    <main class="content">
-        <!-- ABOUT -->
-        <section id="about" class="section">
-            <h5>Personal Profile</h5>
+    <!-- PROJECTS -->
+    <section id="projects" class="section" aria-label="Projects">
+      <h5>Projects</h5>
 
-            <div class="section-card">
-                <p>
-                    Hi, I’m Amine—a highly self-driven and passionate Artificial Intelligence Engineer and Data
-                    Scientist,
-                    holding a master’s degree from Bournemouth University, with demonstrated experience in data-driven
-                    analysis and translating theoretical models into practical solutions for real-world applications.
-                </p>
+      <div class="section-card">
+        <p class="lead">
+          Featured work emphasizes robust evaluation and real-world constraints (privacy, calibration, high-recall
+          performance, and missing/degraded modalities).
+        </p>
 
-                <p>
-                    My profile is strengthened by the completion of research and applied projects, including work that
-                    contributed
-                    to a filed patent in software engineering and automation-related systems—highlighting strong
-                    problem-solving
-                    capabilities and experience building real-world computational applications in Computer Science.
-                </p>
-
-                <div class="about-media">
-                    <video autoplay loop muted playsinline src="assets/vid.mp4"></video>
-                </div>
+        <div class="project-grid">
+          <!-- Featured 1 -->
+          <article class="project-card">
+            <div class="project-head">
+              <h6>Multimodal Deepfake Detection (Audio–Visual)</h6>
+              <span class="pill">95.27% Accuracy</span>
             </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section id="skills" class="section">
-            <h5>Skills</h5>
-
-            <div class="section-card">
-                <p class="lead">
-                    Core strengths: disciplined execution, practical problem-solving, strong evaluation mindset, and
-                    teamwork.
-                    Technically I build end-to-end ML pipelines with reproducible experiments and deployment-aware
-                    metrics.
-                </p>
-
-                <div class="skills-grid">
-                    <div class="skills-text">
-                        <ul class="skills-list">
-                            <li><strong>ML/AI:</strong> Deep Learning, Computer Vision, Time Series, Federated Learning
-                            </li>
-                            <li><strong>Evaluation:</strong> AUROC/PR-AUC, calibration, reliability, early-warning
-                                trade-offs</li>
-                            <li><strong>Programming:</strong> Python, SQL, C/C++</li>
-                            <li><strong>Tools:</strong> PyTorch, scikit-learn, OpenCV, Git, Jupyter/Colab</li>
-                            <li><strong>Other:</strong> Flutter, JavaScript, React</li>
-                            <li><strong>Software:</strong> Adobe Creative Suite, Microsoft Office Suite</li>
-                            <li><strong>Languages:</strong> English, Arabic, French</li>
-                        </ul>
-                    </div>
-
-                    <!-- Your original bar system preserved -->
-                    <div class="skills-bars">
-                        <ul>
-                            <li>
-                                <h6>FOUNDATIONS</h6>
-                                <span class="bar"><span class="foundations"></span></span>
-                            </li>
-                            <li>
-                                <h6>SECURITY</h6>
-                                <span class="bar"><span class="security"></span></span>
-                            </li>
-                            <li>
-                                <h6>CODING</h6>
-                                <span class="bar"><span class="coding"></span></span>
-                            </li>
-                            <li>
-                                <h6>LINUX</h6>
-                                <span class="bar"><span class="linux"></span></span>
-                            </li>
-                            <li>
-                                <h6>NETWORKING</h6>
-                                <span class="bar"><span class="networking"></span></span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <p>
+              Built a multimodal deepfake detection system combining audio, video, and lip–audio synchrony cues, designed
+              to remain reliable when one modality is missing or degraded.
+            </p>
+            <ul>
+              <li>Audio: Wav2Vec2 + MLP</li>
+              <li>Video: EfficientNet-B4 + Transformer</li>
+              <li>Integration: late fusion + robustness checks</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Computer Vision</span>
+              <span class="tag">Audio</span>
+              <span class="tag">Transformers</span>
+              <span class="tag">Robustness</span>
             </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section id="projects" class="section">
-            <h5>Projects</h5>
-
-            <div class="section-card">
-                <article class="project">
-                    <h6>Federated Intrusion Prediction for Healthcare</h6>
-                    <ul>
-                        <li>Built a privacy-preserving federated learning system to predict cyber intrusions without
-                            centralizing sensitive data.</li>
-                        <li>Developed a deep learning model for multi-horizon time-series prediction and evaluated
-                            across simulated hospital sites.</li>
-                        <li>Evaluated early-warning capability, precision at high recall, and calibration to highlight
-                            practical deployment trade-offs.</li>
-                    </ul>
-                </article>
-
-                <article class="project">
-                    <h6>Multimodal Deepfake Detection System (Audio–Visual AI)</h6>
-                    <ul>
-                        <li>Built a multimodal deepfake detection system combining audio, video, and lip–audio synchrony
-                            analysis.</li>
-                        <li>Implemented Wav2Vec2 + MLP (audio) and EfficientNet-B4 + Transformer (video) integrated via
-                            late fusion.</li>
-                        <li><strong>Achieved 95.27% overall accuracy</strong>, outperforming single-modality approaches
-                            on complex manipulations.</li>
-                        <li>Designed for robust real-world inference when one modality is missing or degraded.</li>
-                    </ul>
-                </article>
-
-                <article class="project">
-                    <h6>Intelligent EMR System with Clinical Decision Support (Healthcare AI)</h6>
-                    <ul>
-                        <li>Designed and developed an intelligent EMR system with clinical decision support for a
-                            nephrology department.</li>
-                        <li>Implemented adverse drug effect detection, drug–drug interaction checks, and
-                            renal-insufficiency medication support.</li>
-                        <li>Delivered real-time clinical alerts and recommendations during prescription workflows for
-                            safer medical decisions.</li>
-                        <li>Designed for real clinical use with workflow integration and domain-specific constraints.
-                        </li>
-                    </ul>
-
-                    <!-- Your existing gallery (optional) -->
-                    <div class="gallery">
-                        <span class="image-wrapper"><img src="assets/app2/1(1).jpg" alt="EMR screenshot 1"></span>
-                        <span class="image-wrapper"><img src="assets/app2/1(2).jpg" alt="EMR screenshot 2"></span>
-                        <span class="image-wrapper"><img src="assets/app2/1(3).jpg" alt="EMR screenshot 3"></span>
-                        <span class="image-wrapper"><img src="assets/app2/1(4).jpg" alt="EMR screenshot 4"></span>
-                        <span class="image-wrapper"><img src="assets/app2/1(5).jpg" alt="EMR screenshot 5"></span>
-                        <span class="image-wrapper"><img src="assets/app2/1(6).jpg" alt="EMR screenshot 6"></span>
-                        <span class="image-wrapper"><img src="assets/app2/1(7).jpg" alt="EMR screenshot 7"></span>
-                        <span class="image-wrapper"><img src="assets/app2/1(8).jpg" alt="EMR screenshot 8"></span>
-                        <span class="image-wrapper"><img src="assets/app2/1(9).jpg" alt="EMR screenshot 9"></span>
-                        <span class="image-wrapper"><img src="assets/app2/1(10).jpg" alt="EMR screenshot 10"></span>
-                        <span class="image-wrapper"><img src="assets/app2/1(11).jpg" alt="EMR screenshot 11"></span>
-                        <span class="image-wrapper"><img src="assets/app2/1(12).jpg" alt="EMR screenshot 12"></span>
-                    </div>
-                </article>
-
-                <article class="project">
-                    <h6>American Sign Language Gesture Classification (Computer Vision)</h6>
-                    <ul>
-                        <li>Built an end-to-end ASL gesture recognition pipeline; compared CNN baselines vs improved CNN
-                            vs pose-landmark + SVM.</li>
-                        <li>Implemented data augmentation, reproducible splits, and evaluation (accuracy/F1, confusion
-                            matrix).</li>
-                        <li>Selected the best-performing model for transfer learning to a custom hand-digit dataset.
-                        </li>
-                    </ul>
-                </article>
-
-                <article class="project">
-                    <h6>Integrated Vending Machine Inventory Management & Security System (Patent Filed) — Co-Inventor
-                    </h6>
-                    <ul>
-                        <li>Co-invented an automated vending machine inventory and security system; contributed to a
-                            filed patent.</li>
-                        <li>Designed IoT workflows and built secure data acquisition using a GPRS module for real-time
-                            remote monitoring.</li>
-                        <li>Contributed to system integration across device communication and a mobile monitoring
-                            interface.</li>
-                    </ul>
-                </article>
-
-                <article class="project">
-                    <h6>Phishing URL Detection (Data Cleaning & Machine Learning)</h6>
-                    <ul>
-                        <li>Cleaned and analyzed a large phishing URL dataset (235k samples) and trained ML models
-                            (LightGBM / neural network).</li>
-                        <li>Performed feature selection and evaluated generalization for reliable detection.</li>
-                    </ul>
-                </article>
-
-                <article class="project">
-                    <h6>Patient-Centric Pharmacy Applications</h6>
-                    <ul>
-                        <li>Developed healthcare applications supporting remote medication ordering, prescription
-                            reminders, and pharmacist order management.</li>
-                    </ul>
-
-                    <div class="gallery">
-                        <span class="image-wrapper"><img src="assets/app/1.jpg" alt="Pharmacy app 1"></span>
-                        <span class="image-wrapper"><img src="assets/app/2.jpg" alt="Pharmacy app 2"></span>
-                        <span class="image-wrapper"><img src="assets/app/3.jpg" alt="Pharmacy app 3"></span>
-                        <span class="image-wrapper"><img src="assets/app/4.jpg" alt="Pharmacy app 4"></span>
-                        <span class="image-wrapper"><img src="assets/app/5.jpg" alt="Pharmacy app 5"></span>
-                        <span class="image-wrapper"><img src="assets/app/6.jpg" alt="Pharmacy app 6"></span>
-                    </div>
-                </article>
+            <div class="project-actions">
+              
             </div>
-        </section>
+          </article>
 
-        <!-- EXPERIENCE -->
-        <section id="experience" class="section">
-            <h5>Work Experience</h5>
-
-            <div class="section-card">
-                <article class="project">
-                    <div class="row">
-                        <h6>Artificial Intelligence Engineer | INSY2S</h6>
-                        <span class="meta">08/2024 – 11/2024</span>
-                    </div>
-                    <ul>
-                        <li>Delivered ML solutions across multiple use-cases: data preparation, feature engineering,
-                            training, and evaluation.</li>
-                        <li>Built reusable Python pipelines using PyTorch / scikit-learn with emphasis on
-                            reproducibility and reliability.</li>
-                        <li>Partnered with cross-functional teams to align ML deliverables with enterprise requirements
-                            and integration constraints.</li>
-                    </ul>
-                </article>
+          <!-- Featured 2 -->
+          <article class="project-card">
+            <div class="project-head">
+              <h6>Federated Intrusion Prediction for Healthcare</h6>
+              <span class="pill">Privacy-Preserving</span>
             </div>
-        </section>
-
-        <!-- EDUCATION -->
-        <section id="education" class="section">
-            <h5>Education</h5>
-
-            <div class="section-card">
-                <ul class="timeline">
-                    <li>
-                        <div class="row">
-                            <strong>Bournemouth University</strong>
-                            <span class="meta">2024–2025</span>
-                        </div>
-                        <div class="meta">Master’s in Data Science & Artificial Intelligence — 64/100 (Merit)</div>
-                    </li>
-
-                    <li>
-                        <div class="row">
-                            <strong>Bournemouth University International College</strong>
-                            <span class="meta">2023–2024</span>
-                        </div>
-                        <div class="meta">Pre-Master’s in Media & Communication</div>
-                    </li>
-
-                    <li>
-                        <div class="row">
-                            <strong>University of Ahmed Ben Bella — Oran1</strong>
-                            <span class="meta">2019–2023</span>
-                        </div>
-                        <div class="meta">Bachelor’s in Computer Science</div>
-                    </li>
-
-                    <li>
-                        <div class="row">
-                            <strong>Hireche Mohamed High School</strong>
-                            <span class="meta">2016–2019</span>
-                        </div>
-                        <div class="meta">Baccalaureate degree</div>
-                    </li>
-                </ul>
+            <p>
+              Built a federated learning system to predict cyber intrusions across healthcare sites without centralizing
+              sensitive data, using multi-horizon time-series forecasting for early warning.
+            </p>
+            <ul>
+              <li>Multi-horizon prediction across simulated hospital sites</li>
+              <li>Evaluation: early-warning capability, precision at high recall</li>
+              <li>Calibration analysis to expose deployment trade-offs</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Federated Learning</span>
+              <span class="tag">Time-Series</span>
+              <span class="tag">Calibration</span>
+              <span class="tag">Healthcare</span>
             </div>
-        </section>
+          </article>
+        </div>
 
-        <!-- EXTRACURRICULAR -->
-        <section id="extra" class="section">
-            <h5>Extracurricular</h5>
+        <div class="divider"></div>
 
-            <div class="section-card two-col">
-                <article class="project">
-                    <h6>Athletics</h6>
-                    <ul>
-                        <li>Multiple state and national champion in Karate and Kickboxing; Black Belt in Karate.</li>
-                        <li>Played on Bournemouth University’s American Football offensive team.</li>
-                    </ul>
-                </article>
+        <h6 class="subhead">Additional Projects</h6>
 
-                <article class="project">
-                    <h6>Community Service</h6>
-                    <ul>
-                        <li>Contributed to environmental and social benevolent organizations supporting sustainable
-                            projects and community programs.</li>
-                        <li>Participated in conferences on AI and Startup Business Models to enhance interdisciplinary
-                            knowledge and networking.</li>
-                    </ul>
-                </article>
+        <article class="project">
+          <h6>Intelligent EMR System with Clinical Decision Support (Healthcare AI)</h6>
+          <ul>
+            <li>Designed an EMR decision-support system to enhance patient safety in nephrology workflows.</li>
+            <li>Implemented adverse drug effect detection, drug–drug interactions, and renal-insufficiency medication support.</li>
+            <li>Delivered real-time alerts during prescribing for safer, evidence-based decisions.</li>
+          </ul>
+
+          <div class="gallery" data-gallery="emr" aria-label="EMR screenshots gallery">
+            <button class="thumb" type="button" aria-label="Open EMR screenshot 1">
+              <img src="assets/app2/1(1).jpg" alt="EMR screenshot 1" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" aria-label="Open EMR screenshot 2">
+              <img src="assets/app2/1(2).jpg" alt="EMR screenshot 2" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" aria-label="Open EMR screenshot 3">
+              <img src="assets/app2/1(3).jpg" alt="EMR screenshot 3" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" aria-label="Open EMR screenshot 4">
+              <img src="assets/app2/1(4).jpg" alt="EMR screenshot 4" loading="lazy" decoding="async" />
+            </button>
+          </div>
+          <p class="note">Click images to expand.</p>
+        </article>
+
+        <article class="project">
+          <h6>American Sign Language Gesture Classification (Computer Vision)</h6>
+          <ul>
+            <li>Built an end-to-end ASL recognition pipeline; compared CNN baselines vs improved CNN vs pose-landmark + SVM.</li>
+            <li>Implemented augmentation, reproducible splits, and evaluation (accuracy/F1, confusion matrix).</li>
+            <li>Selected best-performing model and applied transfer learning to a custom hand-digit dataset.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h6>Integrated Vending Machine Inventory Management & Security System (Patent Filed) — Co-Inventor</h6>
+          <ul>
+            <li>Co-invented an automated inventory/security system; contributed to a filed patent.</li>
+            <li>Designed IoT communication workflows and secure data acquisition via GPRS for remote monitoring.</li>
+            <li>Supported system integration across device communication and mobile monitoring interface.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h6>Phishing URL Detection (ML + Data Cleaning)</h6>
+          <ul>
+            <li>Cleaned and analyzed a large phishing URL dataset (~235k samples); trained LightGBM / neural models.</li>
+            <li>Feature selection + generalization testing for reliable detection.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h6>Patient-Centric Pharmacy Applications</h6>
+          <ul>
+            <li>Developed healthcare apps supporting remote medication ordering, reminders, and pharmacist order management.</li>
+          </ul>
+
+          <div class="gallery" data-gallery="pharmacy" aria-label="Pharmacy app screenshots gallery">
+            <button class="thumb" type="button" aria-label="Open pharmacy app screenshot 1">
+              <img src="assets/app/1.jpg" alt="Pharmacy app screenshot 1" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" aria-label="Open pharmacy app screenshot 2">
+              <img src="assets/app/2.jpg" alt="Pharmacy app screenshot 2" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" aria-label="Open pharmacy app screenshot 3">
+              <img src="assets/app/3.jpg" alt="Pharmacy app screenshot 3" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" aria-label="Open pharmacy app screenshot 4">
+              <img src="assets/app/4.jpg" alt="Pharmacy app screenshot 4" loading="lazy" decoding="async" />
+            </button>
+          </div>
+          <p class="note">Click images to expand.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section" aria-label="Skills">
+      <h5>Skills</h5>
+      <div class="section-card">
+        <p class="lead">
+          I build ML systems with reproducible experimentation and deployment-aware evaluation. Key strengths include
+          robustness testing, clear metrics, and practical problem-solving.
+        </p>
+
+        <div class="skills-cards">
+          <div class="skill-card">
+            <h6>Core</h6>
+            <div class="chips">
+              <span class="chip">Python</span>
+              <span class="chip">SQL</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">R</span>
+              <span class="chip">Linux/Bash</span>
+              <span class="chip">Git</span>
             </div>
-        </section>
+          </div>
 
-        <!-- CONTACT -->
-        <section id="contact" class="section">
-            <h5>Contact</h5>
-
-            <div class="section-card">
-                <div class="contact-grid">
-                    <div class="option">
-                        <strong>Email</strong>
-                        <a href="mailto:aminebouchakour19@gmail.com">aminebouchakour19@gmail.com</a>
-                    </div>
-
-                    <div class="option">
-                        <strong>Phone</strong>
-                        <a href="tel:+447459142381">+44 7459 142381</a>
-                    </div>
-
-                    <div class="option">
-                        <strong>LinkedIn</strong>
-                        <a href="https://www.linkedin.com/in/aminebouchakour" target="_blank" rel="noopener noreferrer">
-                            linkedin.com/in/amine-bouchakour-a71118227
-                        </a>
-                    </div>
-
-                    <div class="option">
-                        <strong>GitHub</strong>
-                        <a href="https://github.com/aminebch" target="_blank" rel="noopener noreferrer">
-                            github.com/aminebch
-                        </a>
-                    </div>
-                </div>
+          <div class="skill-card">
+            <h6>ML / DL</h6>
+            <div class="chips">
+              <span class="chip">PyTorch</span>
+              <span class="chip">scikit-learn</span>
+              <span class="chip">TensorFlow</span>
+              <span class="chip">NumPy</span>
+              <span class="chip">Pandas</span>
+              <span class="chip">Jupyter/Colab</span>
             </div>
-        </section>
+          </div>
 
-        <footer class="footer">
-            <p>© <span id="year"></span> Mohammed Amine Bouchakour</p>
-        </footer>
-    </main>
+          <div class="skill-card">
+            <h6>Focus Areas</h6>
+            <div class="chips">
+              <span class="chip">Computer Vision</span>
+              <span class="chip">Time-Series</span>
+              <span class="chip">Multimodal Learning</span>
+              <span class="chip">Federated Learning</span>
+              <span class="chip">Calibration</span>
+              <span class="chip">High-Recall Evaluation</span>
+            </div>
+          </div>
 
-    <script src="index.js"></script>
+          <div class="skill-card">
+            <h6>Tools</h6>
+            <div class="chips">
+              <span class="chip">OpenCV</span>
+              <span class="chip">MATLAB</span>
+              <span class="chip">Microsoft Office</span>
+              <span class="chip">Flutter (basic)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section" aria-label="Experience">
+      <h5>Experience</h5>
+      <div class="section-card">
+        <article class="project">
+          <div class="row">
+            <h6>Artificial Intelligence Engineer — INSY2S</h6>
+            <span class="meta">Aug 2024 – Nov 2024</span>
+          </div>
+          <ul>
+            <li>Delivered ML solutions across multiple use-cases: data preparation, feature engineering, training, and evaluation.</li>
+            <li>Built reusable pipelines in Python (PyTorch / scikit-learn) emphasizing reproducibility and reliability.</li>
+            <li>Collaborated cross-functionally to align ML outputs with performance and integration constraints.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section" aria-label="Education">
+      <h5>Education</h5>
+      <div class="section-card">
+        <ul class="timeline">
+          <li>
+            <div class="row">
+              <strong>Bournemouth University</strong>
+              <span class="meta">2024–2025</span>
+            </div>
+            <div class="meta">MSc Data Science & Artificial Intelligence — Merit (64/100)</div>
+          </li>
+          <li>
+            <div class="row">
+              <strong>Bournemouth University International College</strong>
+              <span class="meta">2023–2024</span>
+            </div>
+            <div class="meta">Pre-Master’s Programme</div>
+          </li>
+          <li>
+            <div class="row">
+              <strong>University of Ahmed Ben Bella — Oran1</strong>
+              <span class="meta">2019–2023</span>
+            </div>
+            <div class="meta">BSc Computer Science</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXTRACURRICULAR -->
+    <section id="extra" class="section" aria-label="Extracurricular">
+      <h5>Extracurricular</h5>
+      <div class="section-card two-col">
+        <article class="project">
+          <h6>Athletics</h6>
+          <ul>
+            <li>Black Belt in Karate; multiple competition achievements.</li>
+            <li>American Football offensive team (Bournemouth University).</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h6>Community</h6>
+          <ul>
+            <li>Environmental and social initiatives supporting sustainable projects.</li>
+            <li>Attended conferences on AI and startup business models.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section" aria-label="Contact">
+      <h5>Contact</h5>
+      <div class="section-card">
+        <div class="contact-grid">
+          <div class="option">
+            <strong>Email</strong>
+            <a href="mailto:aminebouchakour19@gmail.com">aminebouchakour19@gmail.com</a>
+          </div>
+          <div class="option">
+            <strong>Phone</strong>
+            <a href="tel:+447459142381">+44 7459 142381</a>
+          </div>
+          <div class="option">
+            <strong>LinkedIn</strong>
+            <a href="https://www.linkedin.com/in/aminebouchakour" target="_blank" rel="noopener noreferrer">
+              linkedin.com/in/aminebouchakour
+            </a>
+          </div>
+          <div class="option">
+            <strong>GitHub</strong>
+            <a href="https://github.com/aminebch" target="_blank" rel="noopener noreferrer">
+              github.com/aminebch
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" role="contentinfo">
+      <p>© <span id="year"></span> Mohammed Amine Bouchakour</p>
+    </footer>
+  </main>
+
+  <!-- Image modal -->
+  <div class="modal" id="imgModal" aria-hidden="true" aria-modal="true" role="dialog" aria-label="Image preview">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-content" role="document" tabindex="-1">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close image" data-close="true">
+        <i class="bx bx-x" aria-hidden="true"></i>
+      </button>
+      <img id="modalImg" alt="Expanded preview" />
+    </div>
+  </div>
+
+  <noscript>
+    <div style="padding: 14px; margin: 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 12px; background: rgba(0,0,0,.35);">
+      This site works best with JavaScript enabled (navigation enhancements and image modal).
+    </div>
+  </noscript>
 </body>
-
 </html>
