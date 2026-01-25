@@ -1,129 +1,246 @@
-/* -- Glow effect -- */
+/* ============================
+   Portfolio JS (accessibility + UX)
+============================ */
+(() => {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const blob = document.getElementById("blob");
+  function smoothScrollTo(selector) {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    el.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+  }
 
-window.onpointermove = event => { 
-  const { clientX, clientY } = event;
-  
-  blob.animate({
-    left: `${clientX}px`,
-    top: `${clientY}px`
-  }, { duration: 3000, fill: "forwards" });
-}
+  /* ============================
+     Footer year
+  ============================ */
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-/* -- Text effect -- */
+  /* ============================
+     Mobile nav: close after click + click outside
+  ============================ */
+  const navCheckbox = document.getElementById("check");
+  const header = document.querySelector(".header");
 
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  function closeNavIfOpen() {
+    if (navCheckbox && navCheckbox.checked) navCheckbox.checked = false;
+  }
 
-let interval = null;
-
-document.querySelector("h2").onmouseover = event => {  
-  let iteration = 0;
-  
-  clearInterval(interval);
-  
-  interval = setInterval(() => {
-    event.target.innerText = event.target.innerText
-      .split("")
-      .map((letter, index) => {
-        if(index < iteration) {
-          return event.target.dataset.value[index];
-        }
-      
-        return letters[Math.floor(Math.random() * 26)]
-      })
-      .join("");
-    
-    if(iteration >= event.target.dataset.value.length){ 
-      clearInterval(interval);
-    }
-    
-    iteration += 1 / 3;
-  }, 30);
-}
-
-
-/*3D *//*
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0x000000);
-renderer.setPixelRatio(window.devicePixelRatio);
-
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-
-document.body.appendChild(renderer.domElement);
-
-const scene = new THREE.Scene();
-
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-camera.position.set(4, 5, 11);
-
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.enablePan = false;
-controls.minDistance = 5;
-controls.maxDistance = 20;
-controls.minPolarAngle = 0.5;
-controls.maxPolarAngle = 1.5;
-controls.autoRotate = false;
-controls.target = new THREE.Vector3(0, 1, 0);
-controls.update();
-
-const groundGeometry = new THREE.PlaneGeometry(20, 20, 32, 32);
-groundGeometry.rotateX(-Math.PI / 2);
-const groundMaterial = new THREE.MeshStandardMaterial({
-  color: 0x555555,
-  side: THREE.DoubleSide
-});
-const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
-groundMesh.castShadow = false;
-groundMesh.receiveShadow = true;
-scene.add(groundMesh);
-
-const spotLight = new THREE.SpotLight(0xffffff,  3, 100, 0.2, 0.5);
-spotLight.position.set(0, 25, 0);
-spotLight.castShadow = true;
-spotLight.shadow.bias = -0.0001;
-scene.add(spotLight);
-
-const loader = new GLTFLoader().setPath('C:/VS code/Portfolio/spaceman_model/');  
-loader.load('scene.gltf', (gltf) => {
-  const mesh = gltf.scene;
-
-  mesh.traverse((child) => {
-    if (child.isMesh) {
-      child.castShadow = true;
-      child.receiveShadow = true;
-    }
+  document.querySelectorAll(".navbar a").forEach((a) => {
+    a.addEventListener("click", closeNavIfOpen);
   });
 
-  mesh.position.set(0, 1.05, -1);
-  scene.add(mesh);
+  const navCta = document.querySelector(".nav-cta");
+  if (navCta) {
+    navCta.addEventListener("click", () => {
+      const target = navCta.getAttribute("data-scroll");
+      if (target) smoothScrollTo(target);
+      closeNavIfOpen();
+    });
+  }
 
-  document.getElementById('progress').style.display = 'none';
-}, ( xhr ) => {
-  document.getElementById('progress').innerHTML = `LOADING ${xhr.loaded / xhr.total * 100}/100`;
-},);
+  // Click outside header closes menu (mobile)
+  document.addEventListener(
+    "click",
+    (e) => {
+      if (!navCheckbox || !navCheckbox.checked) return;
+      if (!header) return;
+      const target = e.target;
+      if (target instanceof Node && !header.contains(target)) closeNavIfOpen();
+    },
+    { passive: true }
+  );
 
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
+  /* ============================
+     Update aria-expanded on the checkbox (a11y)
+  ============================ */
+  if (navCheckbox) {
+    const syncExpanded = () => {
+      navCheckbox.setAttribute("aria-expanded", navCheckbox.checked ? "true" : "false");
+    };
+    navCheckbox.addEventListener("change", syncExpanded);
+    syncExpanded();
+  }
 
-function animate() {
-  requestAnimationFrame(animate);
-  controls.update();
-  renderer.render(scene, camera);
-}
+  /* ============================
+     Active nav highlighting (IntersectionObserver)
+  ============================ */
+  const navLinks = Array.from(document.querySelectorAll(".navbar a[data-nav]"));
+  const sections = navLinks
+    .map((a) => document.getElementById(a.getAttribute("data-nav") || ""))
+    .filter(Boolean);
 
-animate();*/
+  if ("IntersectionObserver" in window && navLinks.length && sections.length) {
+    const map = new Map(sections.map((s, i) => [s, navLinks[i]]));
 
- 
+    const io = new IntersectionObserver(
+      (entries) => {
+        // Choose the most visible intersecting section
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => (b.intersectionRatio || 0) - (a.intersectionRatio || 0))[0];
+
+        if (!visible) return;
+
+        navLinks.forEach((a) => a.removeAttribute("aria-current"));
+        const link = map.get(visible.target);
+        if (link) link.setAttribute("aria-current", "true");
+      },
+      { root: null, threshold: [0.25, 0.5, 0.75], rootMargin: "-20% 0px -65% 0px" }
+    );
+
+    sections.forEach((s) => io.observe(s));
+  }
+
+  /* ============================
+     Blob follow: performant (rAF + lerp)
+  ============================ */
+  const blob = document.getElementById("blob");
+  let targetX = window.innerWidth / 2;
+  let targetY = window.innerHeight / 2;
+  let currentX = targetX;
+  let currentY = targetY;
+
+  function lerp(a, b, t) {
+    return a + (b - a) * t;
+  }
+
+  if (blob && !prefersReducedMotion) {
+    window.addEventListener(
+      "pointermove",
+      (e) => {
+        targetX = e.clientX;
+        targetY = e.clientY;
+      },
+      { passive: true }
+    );
+
+    (function animateBlob() {
+      currentX = lerp(currentX, targetX, 0.08);
+      currentY = lerp(currentY, targetY, 0.08);
+
+      blob.style.left = `${currentX}px`;
+      blob.style.top = `${currentY}px`;
+
+      requestAnimationFrame(animateBlob);
+    })();
+  }
+
+  /* ============================
+     Scramble text (hover/click)
+  ============================ */
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789•";
+  const heroText = document.getElementById("heroText");
+  let scrambleInterval = null;
+
+  function startScramble() {
+    if (!heroText) return;
+    const original = heroText.dataset.value || heroText.textContent || "";
+    let iteration = 0;
+
+    clearInterval(scrambleInterval);
+
+    scrambleInterval = window.setInterval(() => {
+      const current = original
+        .split("")
+        .map((char, index) => {
+          if (index < iteration) return original[index];
+          if (char === " " || char === "•") return char;
+          return letters[Math.floor(Math.random() * letters.length)];
+        })
+        .join("");
+
+      heroText.textContent = current;
+
+      if (iteration >= original.length) {
+        clearInterval(scrambleInterval);
+        heroText.textContent = original;
+      }
+      iteration += 1 / 3;
+    }, 30);
+  }
+
+  if (heroText && !prefersReducedMotion) {
+    heroText.addEventListener("pointerenter", startScramble);
+    heroText.addEventListener("click", startScramble);
+  }
+
+  /* ============================
+     Gallery modal (click thumbnail) + focus management
+  ============================ */
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  const modalClose = document.getElementById("modalClose");
+
+  let lastFocused = null;
+
+  function openModal(src, alt) {
+    if (!modal || !modalImg) return;
+    lastFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+
+    modalImg.src = src;
+    modalImg.alt = alt || "Expanded preview";
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    // Focus close button for keyboard users
+    if (modalClose) modalClose.focus();
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (modalImg) {
+      modalImg.src = "";
+      modalImg.alt = "Expanded preview";
+    }
+    if (lastFocused) lastFocused.focus();
+    lastFocused = null;
+  }
+
+  // Click on the button, not only on the img (fixes missed clicks)
+  document.querySelectorAll(".gallery .thumb").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const img = btn.querySelector("img");
+      if (!img) return;
+      openModal(img.src, img.alt);
+    });
+  });
+
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      const t = e.target;
+      const close = t && typeof t.getAttribute === "function" ? t.getAttribute("data-close") : null;
+      if (close === "true") closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+        closeModal();
+      }
+
+      // Minimal focus trap inside modal
+      if (e.key === "Tab" && modal.getAttribute("aria-hidden") === "false") {
+        const focusables = modal.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])');
+        const list = Array.from(focusables).filter((el) => el instanceof HTMLElement && !el.hasAttribute("disabled"));
+        if (!list.length) return;
+
+        const first = list[0];
+        const last = list[list.length - 1];
+        const active = document.activeElement;
+
+        if (!e.shiftKey && active === last) {
+          e.preventDefault();
+          first.focus();
+        } else if (e.shiftKey && active === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      }
+    });
+  }
+
+  // Allow explicit close button
+  if (modalClose) modalClose.addEventListener("click", closeModal);
+})();
