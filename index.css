@@ -966,6 +966,7 @@ html {
 
 
 
+
 :root {
   --bg: #0b0d12;
   --panel: rgba(18, 20, 28, 0.55);
@@ -978,7 +979,7 @@ html {
 
   --accent: rgba(122, 231, 255, 0.32);
 
-
+  /* extra accents for new effects */
   --accent2: rgba(162, 108, 255, 0.26);
   --glow: rgba(122, 231, 255, 0.22);
   --glow2: rgba(162, 108, 255, 0.18);
@@ -1005,6 +1006,7 @@ body {
   -webkit-backdrop-filter: blur(14px);
 }
 
+
 .header {
   background: rgba(12, 14, 20, 0.55);
   border-bottom: 1px solid rgba(255, 255, 255, 0.10);
@@ -1013,7 +1015,7 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.30);
 }
 
-/* Section headings: subtle underline glow */
+
 .section>h5 {
   position: relative;
   display: inline-block;
@@ -1104,11 +1106,13 @@ body {
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.40), 0 0 0 1px rgba(162, 108, 255, 0.14) inset;
 }
 
+/* Modal: cleaner */
 .modal-content {
   background: linear-gradient(135deg, rgba(18, 20, 28, 0.92), rgba(18, 20, 28, 0.70));
   border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
 }
+
 
 #blob,
 #blob2,
@@ -1122,7 +1126,7 @@ body {
   -webkit-backdrop-filter: blur(120px);
 }
 
-/* Respect reduced motion */
+
 @media (prefers-reduced-motion: reduce) {
 
   .btn:hover,
