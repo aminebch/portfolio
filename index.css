@@ -148,7 +148,7 @@ body {
   backdrop-filter: blur(6vmax);
 }
 
-
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
 
   #blob,
@@ -910,7 +910,9 @@ body {
   }
 }
 
-
+/* ============================
+   Additions: a11y + UX polish
+============================ */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 110px; /* accounts for fixed header */
@@ -921,30 +923,30 @@ html {
   * { transition: none !important; }
 }
 
-
+/* Clear keyboard focus */
 :focus-visible {
   outline: 2px solid rgba(168, 240, 216, 0.65);
   outline-offset: 3px;
 }
 
-
+/* Keep section anchors from hiding under fixed header */
 .section { scroll-margin-top: 110px; }
 
-
+/* Active nav state (set by JS via aria-current) */
 .navbar a[aria-current="true"] {
   text-shadow: 0 0 14px rgba(168, 240, 216, 0.30);
   border-bottom: 1px solid rgba(168, 240, 216, 0.35);
   padding-bottom: 4px;
 }
 
-
+/* Scramble badge: avoid overflow on small screens */
 #heroText {
   max-width: min(92vw, 820px);
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-
+/* Thumbnail buttons should show focus */
 .thumb:focus-visible,
 .nav-cta:focus-visible,
 .icon-link:focus-visible,
@@ -955,7 +957,13 @@ html {
 
 
 
-
+/* ============================
+   Cool theme overrides (visual polish)
+   - Stronger glassmorphism
+   - Improved depth (shadows + hover)
+   - Cleaner typography rhythm
+   - Subtle neon accents (teal + violet)
+============================ */
 
 :root{
   --bg: #0b0d12;
@@ -966,10 +974,10 @@ html {
   --muted: rgba(255, 255, 255, 0.74);
   --muted2: rgba(255, 255, 255, 0.60);
 
-  
+  /* main accent used throughout existing CSS */
   --accent: rgba(122, 231, 255, 0.32);
 
-  
+  /* extra accents for new effects */
   --accent2: rgba(162, 108, 255, 0.26);
   --glow: rgba(122, 231, 255, 0.22);
   --glow2: rgba(162, 108, 255, 0.18);
@@ -977,7 +985,7 @@ html {
   --radius: 18px;
 }
 
-
+/* Background becomes richer without changing layout */
 body{
   background:
     radial-gradient(1000px 600px at 14% 10%, rgba(122,231,255,0.10), transparent 55%),
@@ -1025,7 +1033,7 @@ body{
   box-shadow: 0 0 18px rgba(122,231,255,0.20);
 }
 
-/* Buttons:  CTA */
+/* Buttons: modern CTA */
 .btn{
   border: 1px solid rgba(255,255,255,0.16);
   background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
@@ -1093,7 +1101,7 @@ body{
   box-shadow: 0 30px 90px rgba(0,0,0,0.55);
 }
 
-/* Blob glow emphasis */
+/* Blob glow emphasis (keeps your existing movement/structure) */
 #blob, #blob2, #blob3{
   filter: blur(90px);
   opacity: 0.9;
